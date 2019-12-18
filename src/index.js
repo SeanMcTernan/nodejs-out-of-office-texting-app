@@ -1,23 +1,19 @@
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
+const apiKey = process.env.APIKEY
 const moment = require('moment')
 const request = require('request')
 const supportHours = require('./utils/supportHours')
-// const midweekSupport =
-// const weekendSupport =
 
 
 
 app.get('/webhooks', (req, res) => {
     const result = supportHours(moment().utcOffset("-05:00"))
     res.send({
-        from: req.query.from,
-         to: req.query.to,
-         text: req.query.text,
-         reposnse: result
-
+        status: result
     })
+    request.post(`https://app2.simpletexting.com/v1/send?token=${apiKey}&phone=${req.query.from}&message=${result}`)
 })
 
 
