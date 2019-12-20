@@ -11,9 +11,10 @@ const app = express();
 const client = redis.createClient(REDIS_PORT);
 
 app.get("/webhooks", cache, (req, res) => {
-  client.setex(phone, 15, message)
-  const result = supportHours(moment().utcOffset("-05:00"));
   const phone = req.query.from;
+  const message = req.query.text;
+  client.setex(phone, 60, message)
+  const result = supportHours(moment().utcOffset("-05:00"));
   res.status(200).send()
   sendMessage(phone, result)
 });
