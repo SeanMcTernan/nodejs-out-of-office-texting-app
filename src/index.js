@@ -7,7 +7,7 @@ const sendMessage = require('./utils/sendMessage')
 const supportHours = require("./utils/supportHours");
 const cache = require('./cache/cache')
 const app = express();
-const client = client = redis.createClient(process.env.REDISCLOUD_URL, {no_ready_check: true})
+const client = redis.createClient(process.env.REDISCLOUD_URL, {no_ready_check: true})
 
 app.get("/webhooks", cache, (req, res) => {
   const phone = req.query.from;
