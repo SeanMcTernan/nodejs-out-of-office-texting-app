@@ -4,7 +4,6 @@ const client = redis.createClient(REDIS_PORT);
 
 const cache = (req, res, next) => {
   const phone = req.query.from;
-  const message = req.query.text;
 
   client.get(phone, (err, data) => {
     if (err) throw err;

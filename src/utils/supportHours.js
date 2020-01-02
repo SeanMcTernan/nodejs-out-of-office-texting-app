@@ -29,7 +29,7 @@ const supportHours = now => {
 
   if (!isWeekend) {
     if (midweekSupport) {
-      return "Hi there, how can we help you today?";
+      return "Hi there, thanks for your message. A memeber of the SimpleTexting team will be in touch shortly.";
     } else if (day != "Fri" && !amHours) {
       return "Sorry we missed you! We'll be back tomorrow at 9am ET. We'll reach out then! - SimpleTexting Team";
     } else if (day != "Fri") {
@@ -44,7 +44,7 @@ const supportHours = now => {
   //Weekend Responses
   else {
     if (weekendSupport) {
-      return "Hi there, how can we help you today?";
+      return "Hi there, thanks for your message. A memeber of the SimpleTexting team will be in touch shortly.";
     } else if (day != "Sun" && !amHours) {
       return "Sorry we missed you! We'll be back tomorrow at 10am ET. We'll reach out then! - SimpleTexting Team";
     } else if (day != "Sun") {
