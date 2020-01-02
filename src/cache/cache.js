@@ -9,7 +9,7 @@ const cache = (req, res, next) => {
     if (err) throw err;
 
     if (data !== null) {
-        res.status(200).send()
+        res.status(201).send()
     } else {
       next();
     }
